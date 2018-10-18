@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from ModelTemplatesApp.models import AccessRecord
+from ModelTemplatesApp.models import AccessRecord, User
 
 # Create your views here.
 def index(request):
@@ -13,4 +13,6 @@ def help(request):
     return render (request, 'ModelTemplatesApp/index.html', context=my_dict)
 
 def users(request):
-    my_users = {}
+    users_list = User.objects.order_by('first_name')
+    my_users = {'users':users_list}
+    return render (request, 'ModelTemplatesApp/users.html', context=my_users)

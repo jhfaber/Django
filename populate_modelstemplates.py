@@ -6,11 +6,12 @@ django.setup()
 
 ## FAKE POPULATE SCRIPT
 import random
-from ModelTemplatesApp.models import AccessRecord, Webpage, Topic, Users
+from ModelTemplatesApp.models import AccessRecord, Webpage, Topic, User
 from faker import Faker
 
 fakegen= Faker()
 topics = ['Search', 'Social', 'Marketplace','News','Games']
+example_emails = ['@gmail.com', '@hotmail.com', '@yahoo.com', '@consofi.com']
 
 def add_topic():
     t = Topic.objects.get_or_create(top_name= random.choice(topics))[0]
@@ -33,7 +34,22 @@ def populate(N=5):
         #create a fake acces record for that Webpage
         acc_rec = AccessRecord.objects.get_or_create(name=webpg,date=fake_date)[0]
 
+
+
+def populateUsers(N=5):
+    for entry in range(N):
+        fake_name=fakegen.name()
+        fake_last_name =fakegen.name()
+        fake_email = fakegen.name() + random.choice(example_emails)
+
+        #Create a  new Users
+
+        user = User.objects.get_or_create(first_name=fake_name,last_name=fake_last_name,email= fake_email)[0]
+
+
+
 if __name__ == '__main__':
     print("populating script!")
-    populate(20)
+
+    populateUsers(20)
     print("populating complete")
