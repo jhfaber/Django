@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^users/', views.users),
     url(r'^admin/', admin.site.urls),
     url(r'^help/', views.help, name= 'help'),
-
+    url(r'^formpage/', views.form_name_view, name= 'form_name'),
 
 #We cand add more urls from ModelTamplatesApp, we can use two URLs
 #http://127.0.0.1:8000/ModelTemplatesApp/ for call the index function of the

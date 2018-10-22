@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from ModelTemplatesApp.models import AccessRecord, User
+from . import forms
 
 # Create your views here.
 def index(request):
@@ -16,3 +17,7 @@ def users(request):
     users_list = User.objects.order_by('first_name')
     my_users = {'users':users_list}
     return render (request, 'ModelTemplatesApp/users.html', context=my_users)
+
+def form_name_view(request):
+    form= forms.formName()
+    return render(request, 'ModelTemplatesApp/form_page.html',{'form':form})
