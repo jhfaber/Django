@@ -19,9 +19,15 @@ from ModelTemplatesApp import views
 
 urlpatterns = [
     url(r'^$', views.index, name= 'index'),
+    #SHOW THE USERS
     url(r'^users/', views.users),
+    #SAVE NEW USERS
+    url(r'^users2/', views.users2),
+    #GO INSIDE OF THE ADMIN DJANGO PAGE
     url(r'^admin/', admin.site.urls),
+    #DON'T DO IT NOTHING
     url(r'^help/', views.help, name= 'help'),
+    #SHOW AN BASIC FORM WITH PROTECTION OF BOTS.
     url(r'^formpage/', views.form_name_view, name= 'form_name'),
 
 #We cand add more urls from ModelTamplatesApp, we can use two URLs

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from ModelTemplatesApp.models import AccessRecord, User
 from . import forms
+from ModelTemplatesApp.forms import NewUserForm
 
 # Create your views here.
 def index(request):
@@ -17,6 +18,23 @@ def users(request):
     users_list = User.objects.order_by('first_name')
     my_users = {'users':users_list}
     return render (request, 'ModelTemplatesApp/users.html', context=my_users)
+
+#SAVE NEW USERS
+def users2(request):
+    form = NewUserForm()
+    if request.method == "POST":
+        form= NewUserForm(request.POST)
+
+        if form.is_valid():
+            #Save the user
+            form.save(commit=True)
+            #RETURN THE PAGE
+            return index(request) #it canbe help(request) or something like that
+        else:
+            print('ERROR FORM INVALID')
+    return render(request,'ModelTemplatesApp/usersForm.html',{'form':form})
+
+
 
 def form_name_view(request):
     form= forms.FormName()
