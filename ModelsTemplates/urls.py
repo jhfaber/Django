@@ -17,6 +17,7 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from ModelTemplatesApp import views
 
+
 urlpatterns = [
     url(r'^$', views.index, name= 'index'),
     #SHOW THE USERS
@@ -34,6 +35,6 @@ urlpatterns = [
 #http://127.0.0.1:8000/ModelTemplatesApp/ for call the index function of the
 #other file
 
-    url(r'ModelTemplatesApp/',include('ModelTemplatesApp.urls'))
+    url(r'templates/',include('ModelTemplatesApp.urls'))
 
 ]

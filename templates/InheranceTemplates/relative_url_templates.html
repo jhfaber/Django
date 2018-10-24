@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+{%  extends "InheranceTemplates/template.html" %}
+  {% block body_block %}
+      <!-- THE NAME "TEMPLATE" IS LOCATED IN THE MODELTEMPLATESAPP/URL.PY
+      IT WAS THE NAME OF THE app_name = 'template' -->
+
+      <a href="{% url 'template:other' %}">link to other</a>
+      <br>
+      <a href="{% url 'admin:index' %}">link to admin</a>
+      <br>
+      <a href="{% url 'index' %}">link to index ORIGINAL</a>
+
+  {% endblock %}

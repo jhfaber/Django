@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+
+{%  extends "InheranceTemplates/template.html" %}
+  {% block body_block %}
+    <h1>Hi! i am other!</h1>
+    <h2>This is an example of template inherint</h2>
+
+
+    {{ text|cut:'wo' }}
+    {{ number|add:"99" }}
+
+  {% endblock %}

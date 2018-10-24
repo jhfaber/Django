@@ -35,7 +35,7 @@ def users2(request):
     return render(request,'ModelTemplatesApp/usersForm.html',{'form':form})
 
 
-
+#TEST FORM PRINT IN THE CONSOLE
 def form_name_view(request):
     form= forms.FormName()
     if request.method == 'POST':
@@ -49,3 +49,18 @@ def form_name_view(request):
             print("TEXT: "+ form.cleaned_data['text'])
 
     return render(request, 'ModelTemplatesApp/form_page.html',{'form':form})
+
+
+
+#INHERANCE TEMPLATES
+def template(request):
+
+    return render(request, 'InheranceTemplates/template.html')
+
+
+def other(request):
+    context_dict = {'text' : 'hello world', 'number':100}
+    return render(request, 'InheranceTemplates/other.html', context= context_dict)
+
+def relative(request):
+    return render(request, 'InheranceTemplates/relative_url_templates.html')
